@@ -1,5 +1,5 @@
-from .laevitas_api_api import get_OptTrades, get_OptSnapshot, get_FutSnapshot, get_lav_implied_vol
-from .laevitas_api_utilities import (
+from .api import get_OptTrades, get_OptSnapshot, get_FutSnapshot, get_lav_implied_vol
+from .utilities import (
     is_option,
     generate_all_daily_dates,
     to_timestamp,

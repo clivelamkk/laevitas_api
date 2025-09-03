@@ -7,13 +7,13 @@ A Python package to interact with the Laevitas API for retrieving historical opt
 Install the package directly from GitHub:
 
 ```bash
-pip install git+https://github.com/yourusername/laevitas_api.git
+pip install git+https://github.com/clivelamkk/laevitas_api.git
 ```
 
 To install a specific version or update to the latest version:
 
 ```bash
-pip install --upgrade git+https://github.com/yourusername/laevitas_api.git
+pip install --upgrade git+https://github.com/clivelamkk/laevitas_api.git
 ```
 
 ## Prerequisites
@@ -71,7 +71,7 @@ To contribute or modify the package:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/laevitas_api.git
+   git clone https://github.com/clivelamkk/laevitas_api.git
    cd laevitas_api
    ```
 

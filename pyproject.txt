@@ -7,7 +7,7 @@ name = "laevitas_api"
 version = "0.1.0"
 description = "A Python package to interact with the Laevitas API for historical options and futures data"
 readme = "README.md"
-authors = [{name = "Your Name", email = "your.email@example.com"}]
+authors = [{name = "Clive Lam", email = "clivelamkk@gmail.com"}]
 license = {file = "LICENSE"}
 requires-python = ">=3.8"
 dependencies = [
@@ -22,6 +22,6 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/laevitas_api"
-Repository = "https://github.com/yourusername/laevitas_api.git"
-Issues = "https://github.com/yourusername/laevitas_api/issues"
+Homepage = "https://github.com/clivelamkk/laevitas_api"
+Repository = "https://github.com/clivelamkk/laevitas_api.git"
+Issues = "https://github.com/clivelamkk/laevitas_api/issues"

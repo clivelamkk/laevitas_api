@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "laevitas_api"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python package to interact with the Laevitas API for historical options and futures data"
 readme = "README.md"
 authors = [{name = "Clive Lam", email = "clivelamkk@gmail.com"}]

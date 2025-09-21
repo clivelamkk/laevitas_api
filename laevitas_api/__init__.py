@@ -11,4 +11,4 @@ from .utilities import (
     get_option_exchange
 )
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"

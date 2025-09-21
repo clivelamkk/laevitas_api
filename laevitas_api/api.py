@@ -82,6 +82,8 @@ def get_OptSnapshot(exchange, theCoin, dt_beg, dt_end, freq, max_retries=20):
                     # Request is successful
                     json_data = req.json()
                     thisItems = list(json_data['items'])
+                    for item in thisItems:
+                        item['page'] = page
                     all_items.extend(thisItems)
                     break # Exit retry loop on success
                 else:
@@ -100,6 +102,7 @@ def get_OptSnapshot(exchange, theCoin, dt_beg, dt_end, freq, max_retries=20):
                 time.sleep(sleep_time)
     if len(all_items)>0:
         df = pd.DataFrame(all_items)
+        df['datetime'] = pd.to_datetime(df['date'], unit='ms')
     else:
         df = pd.DataFrame()
     return df
@@ -144,6 +147,8 @@ def get_FutSnapshot(exchange, theCoin, dt_beg, dt_end, freq, max_retries=20):
                     # Request is successful
                     json_data = req.json()
                     thisItems = list(json_data['items'])
+                    for item in thisItems:
+                        item['page'] = page
                     all_items.extend(thisItems)
                     break # Exit retry loop on success
                 else:
@@ -162,6 +167,7 @@ def get_FutSnapshot(exchange, theCoin, dt_beg, dt_end, freq, max_retries=20):
                 time.sleep(sleep_time)
     if len(all_items)>0:
         df = pd.DataFrame(all_items)
+        df['datetime'] = pd.to_datetime(df['date'], unit='ms')
     else:
         df = pd.DataFrame()
     return df

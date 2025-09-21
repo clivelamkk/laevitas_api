@@ -30,11 +30,11 @@ def get_OptTrades(exchange, theCoin, theDate, max_retries=20):
                 thisSize = len(thisItems)
                 break
             else:
-                print(f"Download unsuccessful: trades - {exchange} {theCoin} datet={theDate} page={page}")
+                print(f"Download unsuccessful: trades - {exchange} {theCoin} datet={theDate} page={page}", flush=True )
                 # request error, wait for 1 second
                 time.sleep(10)
         if attemp > max_retries:
-            print(f"Failed to fetch {page} after {max_retries} attempts.")
+            print(f"Failed to fetch {page} after {max_retries} attempts.", flush=True )
             thisSize = 0 # exit while loop
     if len(all_items)>0:
         df = pd.DataFrame(all_items)
@@ -88,17 +88,17 @@ def get_OptSnapshot(exchange, theCoin, dt_beg, dt_end, freq, max_retries=20):
                     break # Exit retry loop on success
                 else:
                     # Non-200 status code (e.g., 429, 500, etc.)
-                    print(f"Download unsuccessful: options - {exchange} {theCoin} start={dt_beg} end={dt_end} page={page}")
-                    print(f"Status code: {req.status_code}")
+                    print(f"Download unsuccessful: options - {exchange} {theCoin} start={dt_beg} end={dt_end} page={page}", flush=True )
+                    print(f"Status code: {req.status_code}", flush=True )
                     raise RequestException(f"Non-200 status code: {req.status_code}")
             except RequestException as e:
-                print(f"Error: {str(e)}")
+                print(f"Error: {str(e)}", flush=True )
                 if attempt == max_retries - 1: # Last attempt
-                    print(f"Failed to fetch page {page} after {max_retries} attempts.")
+                    print(f"Failed to fetch page {page} after {max_retries} attempts.", flush=True )
                     break
                 # Exponential backoff with jitter
                 sleep_time = (2 ** attempt) + random.uniform(0, 1) # 1, 2, 4, 8 seconds + jitter
-                print(f"Retrying in {sleep_time:.2f} seconds...")
+                print(f"Retrying in {sleep_time:.2f} seconds...", flush=True )
                 time.sleep(sleep_time)
     if len(all_items)>0:
         df = pd.DataFrame(all_items)
@@ -153,17 +153,17 @@ def get_FutSnapshot(exchange, theCoin, dt_beg, dt_end, freq, max_retries=20):
                     break # Exit retry loop on success
                 else:
                     # Non-200 status code (e.g., 429, 500, etc.)
-                    print(f"Download unsuccessful: Futures - {exchange} {theCoin} start={dt_beg} end={dt_end} page={page}")
-                    print(f"Status code: {req.status_code}")
+                    print(f"Download unsuccessful: Futures - {exchange} {theCoin} start={dt_beg} end={dt_end} page={page}", flush=True )
+                    print(f"Status code: {req.status_code}", flush=True )
                     raise RequestException(f"Non-200 status code: {req.status_code}")
             except RequestException as e:
-                print(f"Error: {str(e)}")
+                print(f"Error: {str(e)}", flush=True )
                 if attempt == max_retries - 1: # Last attempt
-                    print(f"Failed to fetch page {page} after {max_retries} attempts.")
+                    print(f"Failed to fetch page {page} after {max_retries} attempts.", flush=True )
                     break
                 # Exponential backoff with jitter
                 sleep_time = (2 ** attempt) + random.uniform(0, 1) # 1, 2, 4, 8 seconds + jitter
-                print(f"Retrying in {sleep_time:.2f} seconds...")
+                print(f"Retrying in {sleep_time:.2f} seconds...", flush=True )
                 time.sleep(sleep_time)
     if len(all_items)>0:
         df = pd.DataFrame(all_items)
